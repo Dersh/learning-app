@@ -1,5 +1,9 @@
 import 'dart:io';
 
+import 'package:FlutterGalleryApp/screens/profile/load_error.dart';
+import 'package:FlutterGalleryApp/screens/profile/loading.dart';
+import 'package:FlutterGalleryApp/screens/profile/profile.dart';
+import 'package:FlutterGalleryApp/screens/profile/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home(Connectivity().onConnectivityChanged),
+      home: ProfileScreen(),
       theme: ThemeData(
         textTheme: buildAppTextTheme(),
       ),
