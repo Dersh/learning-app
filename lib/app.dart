@@ -19,14 +19,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: ProfileScreen(),
+      home: Test(),
       theme: ThemeData(
         textTheme: buildAppTextTheme(),
       ),
       onUnknownRoute: (RouteSettings settings) => _buildRoute(PageNotFound()),
       onGenerateRoute: (RouteSettings settings) {
         if (settings.name == '/fullScreenImage') {
-          FullScreenImageArguments args = (settings.arguments as FullScreenImageArguments);
+          FullScreenImageArguments args =
+              (settings.arguments as FullScreenImageArguments);
           final child = FullScreenImage(
             photo: args.photo,
             altDescription: args.altDescription,
@@ -47,11 +48,26 @@ class MyApp extends StatelessWidget {
 
   ModalRoute _buildRoute(child, {arguments}) {
     if (Platform.isAndroid) {
-      return CupertinoPageRoute(builder: (context) => child, settings: arguments.settings);
+      return CupertinoPageRoute(
+          builder: (context) => child, settings: arguments.settings);
     } else if (Platform.isIOS) {
-      return MaterialPageRoute(builder: (context) => child, settings: arguments.settings);
+      return MaterialPageRoute(
+          builder: (context) => child, settings: arguments.settings);
     }
 
     return null;
+  }
+}
+
+class Test extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: RaisedButton(
+        key: ValueKey("tap_to_profile"),
+        onPressed: () => Navigator.of(context)
+            .push(MaterialPageRoute(builder: (_) => ProfileScreen())),
+      ),
+    );
   }
 }

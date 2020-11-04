@@ -14,17 +14,17 @@ class ProfileData extends Equatable {
   final List<String> likedPhotos;
   final List<String> bookmarkPhotos;
   ProfileData(
-      {@required this.name,
-      @required this.surname,
-      @required this.followers,
-      @required this.likedPhotos,
-      @required this.profileImageLink,
-      @required this.address,
-      @required this.link,
-      @required this.bio,
-      @required this.bookmarkPhotos,
-      @required this.following,
-      @required this.photos});
+      {this.name,
+      this.surname,
+      this.followers,
+      this.likedPhotos,
+      this.profileImageLink,
+      this.address,
+      this.link,
+      this.bio,
+      this.bookmarkPhotos,
+      this.following,
+      this.photos});
   @override
   List<Object> get props => [
         name,

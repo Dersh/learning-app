@@ -27,6 +27,7 @@ class _ProfileState extends State<Profile> {
               padding: const EdgeInsets.only(top: 41),
               child: Text(
                 "${widget.profileData.name} ${widget.profileData.surname}",
+                key: ValueKey("profile_name"),
                 style: TextStyle(
                     letterSpacing: -0.41,
                     color: Colors.black,
@@ -191,29 +192,35 @@ class _ProfileState extends State<Profile> {
                 unselectedLabelColor: Colors.black,
                 tabs: [
                   Tab(
-                      icon: Icon(
-                    FontAwesomeIcons.home,
-                    size: 18,
-                  )),
+                    icon: Icon(
+                      FontAwesomeIcons.home,
+                      size: 18,
+                    ),
+                    key: ValueKey("home_tab"),
+                  ),
                   Tab(
-                      icon: Icon(
-                    FontAwesomeIcons.heart,
-                    size: 20.99,
-                  )),
+                    icon: Icon(
+                      FontAwesomeIcons.heart,
+                      size: 20.99,
+                    ),
+                    key: ValueKey("favorite_tab"),
+                  ),
                   Tab(
-                      icon: Icon(
-                    FontAwesomeIcons.bookmark,
-                    size: 17,
-                  )),
+                    icon: Icon(
+                      FontAwesomeIcons.bookmark,
+                      size: 17,
+                    ),
+                    key: ValueKey("bookmark_tab"),
+                  ),
                 ],
               ),
             ),
             Expanded(
               child: TabBarView(
                 children: [
-                  ImageGrid(imageLinks:widget.profileData.photos),
-                  ImageGrid(imageLinks:widget.profileData.likedPhotos),
-                  ImageGrid(imageLinks:widget.profileData.likedPhotos),
+                  ImageGrid(imageLinks: widget.profileData.photos),
+                  ImageGrid(imageLinks: widget.profileData.likedPhotos),
+                  ImageGrid(imageLinks: widget.profileData.likedPhotos),
                 ],
               ),
             ),

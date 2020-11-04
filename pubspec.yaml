@@ -22,8 +22,12 @@ dependencies:
 
 
 
+
 dev_dependencies:
-  flutter_test:
+  mockito:
+  test:
+  bloc_test: 7.1.0
+  flutter_driver:
     sdk: flutter
 
 flutter:

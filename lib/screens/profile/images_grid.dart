@@ -7,6 +7,7 @@ class ImageGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
+      key: ValueKey("loaded_images_parent"),
       crossAxisCount: 3,
       crossAxisSpacing: 11,
       mainAxisSpacing: 10,
@@ -14,6 +15,7 @@ class ImageGrid extends StatelessWidget {
           .map((link) => ClipRRect(
                 borderRadius: BorderRadius.circular(7),
                 child: CachedNetworkImage(
+                  key: ValueKey("loaded_image"),
                   fit: BoxFit.cover,
                   imageUrl: link,
                   width: 106,
