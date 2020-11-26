@@ -10,7 +10,7 @@ ProfileData testProfile = ProfileData();
 class MockProfileRepository extends Mock implements ProfileRepository {}
 
 void main() {
-  group('TodosBloc', () {
+  group('module 2', () {
     MockProfileRepository profileRepository;
 
     setUp(() {
@@ -32,7 +32,7 @@ void main() {
     );
 
     blocTest<ProfileBloc, ProfileState>(
-      'should emit ProfileLoadFailure if download success',
+      'should emit ProfileLoadSuccess if download success',
       build: () {
         when(profileRepository.downloadProfileData())
             .thenAnswer((_) => Future.value(testProfile));
