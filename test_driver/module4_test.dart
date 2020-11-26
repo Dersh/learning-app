@@ -4,7 +4,11 @@ import 'package:test/test.dart';
 void main() {
   group('Module 4', () {
     final profileTap = find.byValueKey('tap_to_profile');
-    final profileName = find.byValueKey('profile_name');
+    final homeTap = find.byValueKey('home_tab');
+    final favoriteTap = find.byValueKey('favorite_tab');
+    final bookmarkTap = find.byValueKey('bookmark_tab');
+    final loadedImagesParent = find.byValueKey('loaded_images_parent');
+    final loadedImage = find.byValueKey('loaded_image');
 
     FlutterDriver driver;
 
@@ -22,11 +26,21 @@ void main() {
       print(health.status);
     });
 
-    test('module 4', () async {
+    test('Module 4', () async {
       await driver.tap(profileTap);
-
       await Future.delayed(Duration(seconds: 7));
-      expect(await driver.getText(profileName), isNotEmpty);
+      await driver.tap(homeTap);
+      await Future.delayed(Duration(seconds: 5));
+      await driver.tap(find.descendant(
+          of: loadedImagesParent, matching: loadedImage, firstMatchOnly: true));
+      await driver.tap(favoriteTap);
+      await Future.delayed(Duration(seconds: 5));
+      await driver.tap(find.descendant(
+          of: loadedImagesParent, matching: loadedImage, firstMatchOnly: true));
+      await driver.tap(bookmarkTap);
+      await Future.delayed(Duration(seconds: 5));
+      await driver.tap(find.descendant(
+          of: loadedImagesParent, matching: loadedImage, firstMatchOnly: true));
     });
   });
 }
